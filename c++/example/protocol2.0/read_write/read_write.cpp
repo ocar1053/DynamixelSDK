@@ -58,7 +58,7 @@
   #define ADDR_PRESENT_POSITION       132
   #define MINIMUM_POSITION_LIMIT      0  // Refer to the Minimum Position Limit of product eManual
   #define MAXIMUM_POSITION_LIMIT      4095  // Refer to the Maximum Position Limit of product eManual
-  #define BAUDRATE                    57600
+  #define BAUDRATE                    115200
 #elif defined(PRO_SERIES)
   #define ADDR_TORQUE_ENABLE          562  // Control table address is different in DYNAMIXEL model
   #define ADDR_GOAL_POSITION          596
@@ -98,7 +98,7 @@
 
 // Use the actual port assigned to the U2D2.
 // ex) Windows: "COM*", Linux: "/dev/ttyUSB*", Mac: "/dev/tty.usbserial-*"
-#define DEVICENAME  "/dev/ttyUSB0"
+#define DEVICENAME  "COM3"
 
 #define TORQUE_ENABLE                   1
 #define TORQUE_DISABLE                  0
@@ -163,7 +163,7 @@ int main() {
 
   int index = 0;
   int dxl_comm_result = COMM_TX_FAIL;             // Communication result
-  int dxl_goal_position[2] = {MINIMUM_POSITION_LIMIT, MAXIMUM_POSITION_LIMIT};         // Goal position
+  int dxl_goal_position[2] = {1934, 2162};        // Goal position {150,210}         // Goal position
 
   uint8_t dxl_error = 0;                          // DYNAMIXEL error
   #if defined(XL320)
